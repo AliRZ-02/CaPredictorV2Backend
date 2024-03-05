@@ -4,13 +4,15 @@ const statsOptions = {
     discriminatorKey: 'position'
 };
 
-const statsSchema: Schema = new Schema ({
-    gamesPlayed: {
-        type: Number,
-        required: true,
+const statsSchema: Schema = new Schema (
+    {
+        gamesPlayed: {
+            type: Number,
+            required: true,
+        }
     },
     statsOptions
-});
+);
 
 const skaterStatsSchema: Schema = new Schema({
     goalsPer60: {
@@ -86,7 +88,7 @@ const goalieStatsSchema: Schema = new Schema({
     },
 });
 
-const statsModel = model('stats', statsSchema);
+export const statsModel = model('stats', statsSchema);
 
 export const SkaterStatsModel = statsModel.discriminator('SkaterStats', skaterStatsSchema);
 export const GoalieStatsModel = statsModel.discriminator("GoalieStats", goalieStatsSchema);

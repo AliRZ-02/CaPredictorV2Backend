@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { getPlayerById } from "./../controllers/players/index";
+import { getPlayerById } from "../controllers/players/index";
 
 const router: Router = Router();
 

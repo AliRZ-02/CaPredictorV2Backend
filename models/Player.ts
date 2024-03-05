@@ -1,4 +1,4 @@
-import { model, ObjectId, Schema } from "mongoose";
+import { model, Schema } from "mongoose";
 
 import { IPlayer } from "../types/Player";
 
@@ -83,7 +83,7 @@ const playerDetailsSchema: Schema = new Schema ({
 const playerSchema: Schema = new Schema(
     {
         playerId: {
-            type: String,
+            type: Number,
             required: true,
             index: true,
             unique: true,
@@ -110,7 +110,7 @@ const playerSchema: Schema = new Schema(
         },
         
         playerStats: {
-            type: ObjectId,
+            type: Schema.Types.ObjectId,
             required: false
         }
     },
