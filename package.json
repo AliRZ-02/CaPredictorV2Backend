@@ -14,7 +14,8 @@
     },
     "scripts": {
         "build": "tsc --project tsconfig.json",
-        "start": "concurrently \"tsc -w\" \"nodemon dist/js/app.js\"",
+        "dev": "env-cmd -f ./.env concurrently \"tsc -w\" \"nodemon dist/js/app.js\"",
+        "start": "node dist/js/app.js",
         "lint": "eslint . --ext .ts",
         "lint-and-fix": "eslint . --ext .ts --fix",
         "format": "prettier --write ."
