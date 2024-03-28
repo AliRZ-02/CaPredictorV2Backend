@@ -7,3 +7,5 @@ Express + Mongo Backend for CaPredictorV2
 ```bash
 set -a && source .env && set +a
 ```
+
+or `env-cmd -f ./.env`
