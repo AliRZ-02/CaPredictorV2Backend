@@ -3,12 +3,12 @@ import express, { Express } from "express";
 import mongoose from "mongoose";
 
 import CaPredictorRoutes from "./routes";
-import { 
-    MONGO_APP, 
-    MONGO_PASSWORD, 
-    MONGO_URI, 
+import {
+    MONGO_APP,
+    MONGO_PASSWORD,
+    MONGO_URI,
     MONGO_USERNAME,
-    PORT 
+    PORT,
 } from "./settings";
 
 const app: Express = express();
@@ -20,9 +20,7 @@ const uri: string = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_U
 
 mongoose
     .connect(uri)
-    .then(() =>
-        app.listen(PORT)
-    )
-    .catch(error => {
+    .then(() => app.listen(PORT))
+    .catch((error) => {
         throw error;
     });

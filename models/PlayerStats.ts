@@ -1,15 +1,15 @@
-import { model,Schema } from "mongoose";
+import { model, Schema } from "mongoose";
 
 const statsOptions = {
-    discriminatorKey: 'position'
+    discriminatorKey: "position",
 };
 
-const statsSchema: Schema = new Schema (
+const statsSchema: Schema = new Schema(
     {
         gamesPlayed: {
             type: Number,
             required: true,
-        }
+        },
     },
     statsOptions
 );
@@ -88,7 +88,13 @@ const goalieStatsSchema: Schema = new Schema({
     },
 });
 
-export const statsModel = model('stats', statsSchema);
+export const statsModel = model("stats", statsSchema);
 
-export const SkaterStatsModel = statsModel.discriminator('SkaterStats', skaterStatsSchema);
-export const GoalieStatsModel = statsModel.discriminator("GoalieStats", goalieStatsSchema);
+export const SkaterStatsModel = statsModel.discriminator(
+    "SkaterStats",
+    skaterStatsSchema
+);
+export const GoalieStatsModel = statsModel.discriminator(
+    "GoalieStats",
+    goalieStatsSchema
+);

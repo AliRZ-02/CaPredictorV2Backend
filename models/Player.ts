@@ -2,7 +2,7 @@ import { model, Schema } from "mongoose";
 
 import { IPlayer } from "../types/Player";
 
-const birthDataSchema: Schema = new Schema ({
+const birthDataSchema: Schema = new Schema({
     country: {
         type: String,
         required: true,
@@ -11,7 +11,7 @@ const birthDataSchema: Schema = new Schema ({
     city: {
         type: String,
         required: true,
-    }
+    },
 });
 
 const draftDetailsSchema: Schema = new Schema({
@@ -28,7 +28,7 @@ const draftDetailsSchema: Schema = new Schema({
     pickInRound: {
         type: Number,
         required: true,
-    }
+    },
 });
 
 const photoDetailsSchema: Schema = new Schema({
@@ -45,10 +45,10 @@ const photoDetailsSchema: Schema = new Schema({
     imageUrl: {
         type: String,
         required: true,
-    }
+    },
 });
 
-const playerDetailsSchema: Schema = new Schema ({
+const playerDetailsSchema: Schema = new Schema({
     playerName: {
         type: String,
         required: true,
@@ -61,7 +61,7 @@ const playerDetailsSchema: Schema = new Schema ({
 
     position: {
         type: String,
-        required: true
+        required: true,
     },
 
     age: {
@@ -101,18 +101,18 @@ const playerSchema: Schema = new Schema(
 
         historicalData: {
             type: draftDetailsSchema,
-            required: false
+            required: false,
         },
 
         photoDetails: {
             type: photoDetailsSchema,
-            required: false
+            required: false,
         },
-        
+
         playerStats: {
             type: Schema.Types.ObjectId,
-            required: false
-        }
+            required: false,
+        },
     },
     { timestamps: true }
 );
