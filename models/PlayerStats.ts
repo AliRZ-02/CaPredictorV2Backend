@@ -6,6 +6,13 @@ const statsOptions = {
 
 const statsSchema: Schema = new Schema(
     {
+        playerId: {
+            type: Number,
+            required: true,
+            index: true,
+            unique: true,
+        },
+        
         gamesPlayed: {
             type: Number,
             required: true,

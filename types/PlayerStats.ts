@@ -1,6 +1,7 @@
 import { Document } from "mongoose";
 
 interface IStatsData extends Document {
+    playerId: number;
     gamesPlayed: number;
 }
 

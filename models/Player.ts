@@ -109,10 +109,6 @@ const playerSchema: Schema = new Schema(
             required: false,
         },
 
-        playerStats: {
-            type: Schema.Types.ObjectId,
-            required: false,
-        },
     },
     { timestamps: true }
 );

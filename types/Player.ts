@@ -1,4 +1,4 @@
-import { Document, ObjectId } from "mongoose";
+import { Document } from "mongoose";
 
 interface IBirthData {
     country: string;
@@ -27,10 +27,9 @@ interface IPlayerDetails {
 }
 
 export interface IPlayer extends Document {
-    playerId: string;
+    playerId: number;
     playerDetails: IPlayerDetails;
     birthInformation: IBirthData;
     historicalData: IDraftDetails;
     photoDetails: IPhotoDetails;
-    playerStats: ObjectId;
 }
