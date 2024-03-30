@@ -3,14 +3,33 @@ import { Request, Response } from "express";
 import Player from "../../models/Player";
 import { statsModel } from "../../models/PlayerStats";
 import { IPlayer } from "../../types/Player";
-import { ISkaterStatsData, IGoalieStatsData } from "../../types/PlayerStats";
+import { IGoalieStatsData,ISkaterStatsData } from "../../types/PlayerStats";
+
+export const getAllPlayers = async (
+    req: Request,
+    res: Response
+): Promise<void> => {
+    try {
+        const allPlayers: IPlayer[] | null = await Player.find({});
+        res.status(200).json(allPlayers.map(
+            (val) => {
+                return {
+                    name: val?.playerDetails?.playerName,
+                    playerId: val?.playerId.toString()
+                };
+            }
+        ));
+    } catch (error) {
+        res.status(400).json({ error: `Error ocurred for /players/:playerId` });
+    }
+};
 
 export const getPlayerById = async (
     req: Request,
     res: Response
 ): Promise<void> => {
     try {
-        const playerId: Number = parseInt(req.params.playerId);
+        const playerId: number = parseInt(req.params.playerId);
         const playerData: IPlayer | null = await Player.findOne(
             { playerId: playerId },
             { _id: 0 }
